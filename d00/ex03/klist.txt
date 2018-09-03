@@ -1,0 +1,5 @@
+credentials cache: API:76FB262A-2E85-4BD9-8904-6CECFB0508C5
+         Principal: saneveu@42.FR
+
+  		  Issued                Expires               Principal
+ 		  Aug 27 11:54:04 2018  Sep  3 11:53:57 2018  krbtgt/42.FR@42.FR
