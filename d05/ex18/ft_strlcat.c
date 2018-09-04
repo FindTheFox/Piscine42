@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 21:58:58 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/04 17:59:37 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/04 20:06:46 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/04 22:12:31 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define MAJ(c) (c >= 65 && c <= 90 ? 1 : 0) 
-#define MIN(c) (c >= 'a' && c <= 'z' ? 1 : 0)
-#define LETTER(c) (MAJ(c) || MIN(c) ? 1 : 0)
-#define NUMBER(c) (c >= '0' && c <= '9' ? 1 : 0)
-
-char	*ft_strcapitalize(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 
 	i = 0;
 	while (str[i])
-	{
-		if (LETTER(str[i]) && MAJ(str[i]))
-		{
-			str[i] += 32;
-			i++;
-		}
-		else
-			i++;
-	}
-	
+		i++;
+	return (i);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	int i;
+	int srclen;
+	int destlen;
+
+	destlen = ft_strlen(dest);
+	srclen = ft_strlen(src); 
 	i = 0;
-	while (str[i])
+	while (src[i] && (destlen + i + 1) < size)
 	{
-		if (MIN(str[i]))
-		{
-			if ((!NUMBER(str[i - 1])) && (!LETTER(str[i - 1])))
-				str[i] -= 32;
-		}
+		dest[destlen + i] = src[i];
 		i++;
 	}
-	return (str);
-}	
+	if (size < destlen)
+		return (size + srclen);
+	dest[destlen + i] = '\0';
+	return (destlen + srclen);
+}
