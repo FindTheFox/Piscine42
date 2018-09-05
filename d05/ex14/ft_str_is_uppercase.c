@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 16:49:30 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/04 16:52:23 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/05 19:19:53 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_str_is_uppercase(char *str)
 {
 	int i;
 
-	i = 0; 
+	i = 0;
 	while (str[i])
 	{
 		if (UP(str[i]))

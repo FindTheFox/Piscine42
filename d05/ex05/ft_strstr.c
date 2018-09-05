@@ -6,10 +6,9 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:23:14 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/03 19:30:18 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/05 19:15:10 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -23,11 +22,10 @@ char	*ft_strstr(char *str, char *to_find)
 		while (to_find[j] == str[i + j])
 		{
 			if (to_find[j + 1] == '\0')
-			   return (str + i);
+				return (str + i);
 			j++;
 		}
-		i++;	
+		i++;
 	}
 	return (0);
 }
- 

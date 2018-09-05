@@ -6,19 +6,20 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 14:59:01 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/03 16:24:02 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/05 23:07:31 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
-     int i;
+	int i;
 
-	 i = 0;
-     while (src[i])
-     {
-        dest[i] = src[i];
-        i++;
-     }
-	 return (dest);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

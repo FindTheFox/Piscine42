@@ -6,11 +6,11 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 21:58:58 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/04 17:59:37 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/05 19:19:13 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define MAJ(c) (c >= 65 && c <= 90 ? 1 : 0) 
+#define MAJ(c) (c >= 65 && c <= 90 ? 1 : 0)
 #define MIN(c) (c >= 'a' && c <= 'z' ? 1 : 0)
 #define LETTER(c) (MAJ(c) || MIN(c) ? 1 : 0)
 #define NUMBER(c) (c >= '0' && c <= '9' ? 1 : 0)
@@ -30,7 +30,6 @@ char	*ft_strcapitalize(char *str)
 		else
 			i++;
 	}
-	
 	i = 0;
 	while (str[i])
 	{
@@ -42,4 +41,4 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
-}	
+}

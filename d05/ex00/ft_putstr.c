@@ -6,11 +6,11 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 13:26:02 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/03 13:27:34 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/05 19:08:48 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char);
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {

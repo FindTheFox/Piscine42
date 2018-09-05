@@ -6,11 +6,11 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 20:06:46 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/04 22:12:31 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/05 23:14:29 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+int				ft_strlen(char *str)
 {
 	int i;
 
@@ -22,12 +22,12 @@ int		ft_strlen(char *str)
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int i;
-	int srclen;
-	int destlen;
+	unsigned int i;
+	unsigned int srclen;
+	unsigned int destlen;
 
 	destlen = ft_strlen(dest);
-	srclen = ft_strlen(src); 
+	srclen = ft_strlen(src);
 	i = 0;
 	while (src[i] && (destlen + i + 1) < size)
 	{

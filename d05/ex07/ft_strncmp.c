@@ -6,16 +6,16 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 21:17:59 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/03 21:27:10 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/05 23:09:30 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n)
-			i++;
+		i++;
 	return (s1[i] - s2[i]);
 }
