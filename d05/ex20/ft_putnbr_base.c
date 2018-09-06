@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 11:19:44 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/05 22:15:33 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/06 16:43:38 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,35 +24,33 @@ int		check_base(char *base)
 			return (0);
 		if (base[len] == 0)
 			return (0);
-		i = len;
-		while (i--)
+		i = len - 1;
+		while (i >= 0)
 		{
 			if (base[len] == base[i])
 				return (0);
+			i--;
 		}
 		len++;
 	}
 	return (len);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(int nb, char *base)
 {
-	int l_base;
+	int		l_base;
+	long	nbr;
 
+	nbr = nb;
 	l_base = check_base(base);
 	if (l_base > 0)
 	{
-		if (nbr == -2147483648)
-		{
-			ft_putnbr_base((nbr / l_base), base);
-			ft_putchar('8');
-		}
-		else if (nbr < 0)
+		if (nbr < 0)
 		{
 			ft_putchar('-');
-			ft_putnbr_base((-1 * nbr), base);
+			nbr = -nbr;
 		}
-		else if (nbr >= l_base)
+		if (nbr >= l_base)
 		{
 			ft_putnbr_base((nbr / l_base), base);
 			ft_putnbr_base((nbr % l_base), base);
