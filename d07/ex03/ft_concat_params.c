@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:08:43 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/06 14:24:50 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/06 22:52:23 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
+char	 *ft_strcat(char *dest, char *src)
+{
+	int i;
+
+
 char 	*ft_concat_params(int argc, char **argv)
 {
 	int i;
@@ -31,6 +36,4 @@ char 	*ft_concat_params(int argc, char **argv)
 		return (0);
 	while (i <= argc)
 	{
-		while (argv[i][j])
-		{
-
+		while (argv[i][j]			
