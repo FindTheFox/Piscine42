@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 19:23:14 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/05 23:38:10 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/06 14:36:36 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int		ft_atoi_base(char *str, char *base)
 	if (base_n < 2)
 		return (0);
 	nb = 0;
-	sign = 0;
+	sign = 1;
 	i = 0;
-	while ((str[i] >= 9 && str[i] == 13) || str[i] == ' ')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		sign *= (str[i++] == '-' ? -1 : 1);

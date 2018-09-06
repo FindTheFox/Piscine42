@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_concat_params.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 21:04:15 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/06 13:19:54 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/06 14:08:43 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/06 14:24:50 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,17 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strdup(char *src)
+char 	*ft_concat_params(int argc, char **argv)
 {
-	char *dest;
 	int i;
+	int j;
+	char *dest;
 
-	i = 0;
-	if (!(dest = malloc(sizeof(ft_strlen(src)))))
-			return (0);
-	while (src[i])
+	i = 1;
+	if (!(dest = malloc(sizeof(ft_strlen(*argv)))))
+		return (0);
+	while (i <= argc)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i + 1] = '\0';
-	return (dest);
-}
+		while (argv[i][j])
+		{
+

@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 11:19:44 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/06 00:09:05 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/06 14:02:11 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	ft_putnbr_base(int nbr, char *base)
 
 void	ft_putstr_non_printable(char *str)
 {
-	int i;
-	char *base;
-	
+	int		i;
+	char	*base;
+
 	i = 0;
 	base = "0123456789abcdef";
 	while (str[i])
@@ -75,11 +75,11 @@ void	ft_putstr_non_printable(char *str)
 		{
 			ft_putchar('\\');
 			if (str[i] <= 16)
-			   ft_putchar('0');
+				ft_putchar('0');
 			ft_putnbr_base(str[i], base);
 		}
 		else
 			ft_putchar(str[i]);
 		i++;
 	}
-}	
+}

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 21:04:15 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/06 13:19:54 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/06 14:03:32 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/06 14:07:46 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+#include <stdlib.h>
+
+int		*ft_ultimate_range(int **range, int min, int max)
 {
+	int *dest;
+	int taille;
 	int i;
+	int j;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *src)
-{
-	char *dest;
-	int i;
-
-	i = 0;
-	if (!(dest = malloc(sizeof(ft_strlen(src)))))
-			return (0);
-	while (src[i])
+	j = 0;
+	i = min - 1;
+	taille = max - min;
+	if (min >= max)
+		return (0);
+	if (!(dest = malloc(sizeof(taille))))
+		return (0);
+	while (i++ < (max - 1))
 	{
-		dest[i] = src[i];
-		i++;
+		dest[j] = i;
+		j++;
 	}
-	dest[i + 1] = '\0';
-	return (dest);
-}
+	*range = dest;
+	return (range);
+}	
