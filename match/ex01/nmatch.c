@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   nmatch.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 18:01:21 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/08 20:29:15 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/08 18:07:51 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/08 18:16:14 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+int		nmatch(char *s1, char *s2)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (*s1 != '\0' && *s2 == '*')
+		return (nmatch(s1, s2 + 1) + nmatch(s1 + 1, s2));
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
+	if (*s1 == *s2)
+		return (nmatch(s1 + 1, s2 + 1));
+	if (*s1 == '\0' && *s2 == '*')
+		return (nmatch(s1, s2 + 1));
+	return (0);
 }
 
-char	*ft_strncat(char *dest, char *src, int nb)
+int		main(int ac, char **av)
 {
-	int		i;
-	int		j;
-
-	i = 0;
-	while (dest[i])
-		i++;
-	j = 0;
-	while (j < nb && src[i])
-	{
-		dest[i + j] = src[j];
-		i++;
-	}
-	dest[i + j] = 0;
-	return (dest);
+	printf("%d\n", nmatch(av[1], av[2]));
 }
