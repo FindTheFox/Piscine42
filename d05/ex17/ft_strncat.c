@@ -6,19 +6,9 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 18:01:21 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/08 20:29:15 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/09 00:12:13 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int		ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strncat(char *dest, char *src, int nb)
 {
@@ -29,10 +19,10 @@ char	*ft_strncat(char *dest, char *src, int nb)
 	while (dest[i])
 		i++;
 	j = 0;
-	while (j < nb && src[i])
+	while (j < nb && src[j])
 	{
 		dest[i + j] = src[j];
-		i++;
+		j++;
 	}
 	dest[i + j] = 0;
 	return (dest);
