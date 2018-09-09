@@ -6,9 +6,13 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:48:52 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/09 00:34:51 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/09 18:29:57 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
+#include <stdio.h>
+
 #define SEP(c) (c == '\n' || c == '\t' || c == ' ' ? 1 : 0)
 #define LETTER(c) ((c >= 'a' && c >= 'z') || (c >= 'A' || c <= 'Z') ? 1 : 0)
 
@@ -45,7 +49,7 @@ int		nb_mot(char *str)
 		else
 			i++;
 	}	
-	return (nb);
+	return (nb - 1);
 }
 
 char 	**ft_split_whitespaces(char *str)
@@ -58,16 +62,21 @@ char 	**ft_split_whitespaces(char *str)
 	i = 0;
 	j = 0;
 	k = 0;
+	
+	if (!(dest = (char **)malloc(sizeof(char*) * nb_mot(str))))
+		return(0);
 	while (str[i])
 	{	
+		if(!(dest[j] = (char *)malloc(sizeof(char) * taille_mot(str + i))))
+			return (0);
 		while (SEP(str[i]))
 			i++;	
-		
-		if (!(dest = (char *)malloc(sizeof(dest) * (taille_mot(str) * nb_mot(str)))))
-			return(0);
+		printf("i = %d\n", i);	
 		while (LETTER(str[i]) && !SEP(str[i]))
 		{
 			dest[j][k] = str[i];
+			printf("i = %d\n", i);
+			printf("%s\n", *dest);
 			i++;
 			k++;
 		}
