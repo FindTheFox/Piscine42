@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 18:07:51 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/08 18:16:14 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/09 16:17:26 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,4 @@ int		nmatch(char *s1, char *s2)
 	if (*s1 == '\0' && *s2 == '*')
 		return (nmatch(s1, s2 + 1));
 	return (0);
-}
-
-int		main(int ac, char **av)
-{
-	printf("%d\n", nmatch(av[1], av[2]));
 }
