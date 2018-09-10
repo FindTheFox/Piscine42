@@ -6,7 +6,7 @@
 /*   By: nrechati <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:06:32 by nrechati          #+#    #+#             */
-/*   Updated: 2018/09/09 21:59:20 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/09 22:51:26 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	output_solved(int **grid)
 			ft_putchar(' ');
 		pos++;
 	}
-	ft_putchar('\n');
 	free(grid);
 	return ;
 }

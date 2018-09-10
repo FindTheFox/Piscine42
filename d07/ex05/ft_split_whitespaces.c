@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:48:52 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/10 15:45:11 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/10 16:02:41 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,11 @@ char	**ft_split_whitespaces(char *str)
 	return (tab);
 }
 
+void	ft_print_words_tables(char **str);
+
 int		main(int ac, char **av)
 {
 	ac = 0;
-	ft_split_whitespaces(av[1]);
+	ft_print_words_tables(ft_split_whitespaces(av[1]));
 	return(0);
 }
