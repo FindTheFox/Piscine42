@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:06:51 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/10 19:33:32 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/10 20:59:09 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,30 +72,30 @@ int		ft_atoi_base(char *str, char *base)
 		return (0);
 }
 
-void	ft_putnbr_base(int nb, char *base)
+void	ft_putnbr_base(int nb, char *base, char **str, int i)
 {
 	int		l_base;
 	long	nbr;
 
 	nbr = nb;
 	l_base = check_base(base);
-	if (l_base > 0)
+	if (l_base >= 2)
 	{
 		if (nbr < 0)
 		{
-			ft_putchar('-');
-			nbr = -nbr;
+			str[0][0] = '-';
+			ft_putnbr_base(-nb, base , str, 1);
 		}
 		if (nbr >= l_base)
 		{
-			ft_putnbr_base((nbr / l_base), base);
-			ft_putnbr_base((nbr % l_base), base);
+			ft_putnbr_base(nbr / l_base, base, str, i + 1);
+			ft_putnbr_base(nbr % l_base, base, str, i );
 		}
 		else
-			ft_putchar(base[nbr]);
+			str[0][i] = base[nbr];
 	}
 }
 
 char 	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-
+	
