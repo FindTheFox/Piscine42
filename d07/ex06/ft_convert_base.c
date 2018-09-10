@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:06:51 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/10 20:59:09 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/10 22:08:19 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,29 @@ void	ft_putnbr_base(int nb, char *base, char **str, int i)
 
 char 	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	
+	int		i;
+	int		number;
+	char	*str;
+	int		j;
+	char	tmp;
+
+	number = ft_atoi_base(nbr, base_from);
+	if (!(str = (char *)malloc(sizeof(char) * 40)))
+		return (0);
+	i = 0;
+	while (i < 50)
+		str[i++] = 0;
+	ft_putnbr_base(number, base_to, &str, 0);
+	i = 0;
+	str += (str[i] == '-' ? 1 : 0);
+	j = 0;
+	while (str[j])
+		j++;
+	while (i < j / 2)
+	{
+		tmp = str[i];
+		str[i] = str[j - i - 1];
+		str[j - i++ - 1] = tmp;
+	}
+	return (str[-1] == '-' ? str - 1 : str);
+}
