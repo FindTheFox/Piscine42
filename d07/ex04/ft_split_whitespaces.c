@@ -14,21 +14,25 @@
 #include <stdio.h>
 
 #define SEP(c) (c == '\n' || c == '\t' || c == ' ' ? 1 : 0)
-#define LETTER(c) ((c >= 'a' && c >= 'z') || (c >= 'A' || c <= 'Z') ? 1 : 0)
 
-int		taille_mot(char *str)
+int		ft_word_size(char *str)
 {
 	int i;
-	int taille;
+	int word_size;
 
 	i = 0;
-	taille = 0;
-	while (LETTER(str[i]) && !SEP(str[i]))
+	word_size = 0;
+	while (str[i])
 	{
-		taille++;
-		i++;		
+		while (SEP(str[i]) && str[i])
+			i++;
+		while (!(SEP(str[i])) && str[i])
+		{
+			word_size++;
+			i++;		
+		}
 	}
-	return (taille);
+	return (word_size);
 }
 
 int		nb_mot(char *str)
@@ -39,50 +43,44 @@ int		nb_mot(char *str)
 	i = 0;
 	nb = 0;
 	while (str[i])
-	{
-		if (LETTER(str[i]))
-		{
-			nb++;
-			while (LETTER(str[i]))
-				i++;
-		}
-		else
+	{	
+		while (!(SEP(str[i])) && str[i])
 			i++;
-	}	
-	return (nb - 1);
+		while (SEP(str[i]))
+			i++;
+		nb++;
+	}
+	return (nb);
 }
 
 char 	**ft_split_whitespaces(char *str)
 {
-	char **dest;
-	int i;
-	int j;
-	int k;
+	char	**dest;
+	char	*mot;
+	int 	k;
+	int	word_entered;
+	int	word_count;
 
-	i = 0;
-	j = 0;
 	k = 0;
-	
-	if (!(dest = (char **)malloc(sizeof(char*) * nb_mot(str))))
+	word_entered = 0;
+	word_count = nb_mot(str);
+	printf("%d\n", word_count);
+	if (!(dest = (char**)malloc(sizeof(char*) * (word_count + 1))))
 		return(0);
-	while (str[i])
+	while (word_entered < word_count)
 	{	
-		if(!(dest[j] = (char *)malloc(sizeof(char) * taille_mot(str + i))))
+		if(!(mot = (char *)malloc(sizeof(char) * (ft_word_size(str) + 1))))
 			return (0);
-		while (SEP(str[i]))
-			i++;	
-		printf("i = %d\n", i);	
-		while (LETTER(str[i]) && !SEP(str[i]))
-		{
-			dest[j][k] = str[i];
-			printf("i = %d\n", i);
-			printf("%s\n", *dest);
-			i++;
-			k++;
-		}
-		dest[j][k] = '\0';
-		j++;
+		while (SEP(str[0]) && str[0] != '\0')
+			str++;	
+		printf("str = %s\n", str);	
+		while (!(SEP(str[0])) && str[0] != '\0')
+			mot[k++] = *str++;
+		mot[k] = '\0';
+		dest[word_entered++] = mot;
+		k = 0;
 	}
+	dest[word_entered] = '\0';
 	printf("%s\n", *dest);
 	return (dest);
 }	
