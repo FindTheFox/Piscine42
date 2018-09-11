@@ -6,10 +6,12 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:06:51 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/10 22:08:19 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/11 14:44:44 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <stdio.h>
 
 int		check_base(char *str)
 {
@@ -66,10 +68,7 @@ int		ft_atoi_base(char *str, char *base)
 		nb = nb * base_n + in_base(base, str[i]);
 		i++;
 	}
-	if (!str[i] || str[i] == '-' || str[i] == '+')
-		return (sign * nb);
-	else
-		return (0);
+	return (sign * nb);
 }
 
 void	ft_putnbr_base(int nb, char *base, char **str, int i)
@@ -84,19 +83,20 @@ void	ft_putnbr_base(int nb, char *base, char **str, int i)
 		if (nbr < 0)
 		{
 			str[0][0] = '-';
-			ft_putnbr_base(-nb, base , str, 1);
+			ft_putnbr_base(-nbr, base, str, 1);
+			printf("nbr = %ld\n", nbr);
 		}
-		if (nbr >= l_base)
+		else if (nbr >= l_base)
 		{
 			ft_putnbr_base(nbr / l_base, base, str, i + 1);
-			ft_putnbr_base(nbr % l_base, base, str, i );
+			ft_putnbr_base(nbr % l_base, base, str, i);
 		}
 		else
 			str[0][i] = base[nbr];
 	}
 }
 
-char 	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int		i;
 	int		number;
@@ -105,7 +105,8 @@ char 	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	char	tmp;
 
 	number = ft_atoi_base(nbr, base_from);
-	if (!(str = (char *)malloc(sizeof(char) * 40)))
+	printf("atoi = %d\n", number);
+	if (!(str = (char *)malloc(sizeof(char) * 50)))
 		return (0);
 	i = 0;
 	while (i < 50)
@@ -123,4 +124,10 @@ char 	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		str[j - i++ - 1] = tmp;
 	}
 	return (str[-1] == '-' ? str - 1 : str);
+}
+
+int		main(int ac, char **av)
+{
+	printf("%s\n", ft_convert_base(av[1], av[2], av[3]));
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:48:52 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/10 15:45:11 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/11 15:26:06 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		ft_word_size(char *str)
 	i = 0;
 	while (str[i] && DIFSEP(str[i]))
 		i++;
-	//printf("word_size = %d\n", word_size);
 	return (i);
 }
 

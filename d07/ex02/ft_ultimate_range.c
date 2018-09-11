@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:03:32 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/06 14:07:46 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/11 12:11:09 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		*ft_ultimate_range(int **range, int min, int max)
 	taille = max - min;
 	if (min >= max)
 		return (0);
-	if (!(dest = malloc(sizeof(taille))))
+	if (!(dest = (int *)malloc(sizeof(int) * taille)))
 		return (0);
 	while (i++ < (max - 1))
 	{

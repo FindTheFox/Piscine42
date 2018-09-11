@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 14:08:43 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/08 21:11:34 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/11 12:12:51 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,4 @@ char 	*ft_concat_params(int ac, char **av)
 	count = ft_strlen(dest);
 	dest[count] = '\0';
 	return (dest);
-}
-
-int		main(int ac, char **av)
-{
-	printf("%s", ft_concat_params(ac, av));
-	return (0);
 }
