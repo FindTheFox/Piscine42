@@ -6,20 +6,18 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:48:52 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/11 15:26:06 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/11 18:28:53 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 #define SEP(c) (c == '\n' || c == '\t' || c == ' ' ? 1 : 0)
 #define DIFSEP(c) (c != '\n' && c != '\t' && c != ' ' ? 1 : 0)
 
-int		ft_word_size(char *str)
+int		word_size(char *str)
 {
 	int i;
-	int word_size;
 
 	i = 0;
 	while (str[i] && DIFSEP(str[i]))
@@ -29,13 +27,13 @@ int		ft_word_size(char *str)
 
 int		nb_mot(char *str)
 {
-	int i;
-	int nb;
+	int		i;
+	int		nb;
 
 	i = 0;
 	nb = 0;
 	while (str[i])
-	{	
+	{
 		while (SEP(str[i]))
 			i++;
 		if (str[i])
@@ -45,12 +43,13 @@ int		nb_mot(char *str)
 	}
 	return (nb);
 }
+
 char	**ft_split_whitespaces(char *str)
 {
-	int    i;
-	int    j;
-	int    k;
-	char  **tab;
+	int		i;
+	int		j;
+	int		k;
+	char	**tab;
 
 	i = 0;
 	k = 0;
@@ -62,7 +61,7 @@ char	**ft_split_whitespaces(char *str)
 			i++;
 		if (str[i])
 		{
-			if (!(tab[k] = (char*)malloc(sizeof(char) * (ft_word_size(str + i)))))
+			if (!(tab[k] = (char*)malloc(sizeof(char) * (word_size(str + i)))))
 				return (0);
 			j = 0;
 			while (str[i] && DIFSEP(str[i]))
@@ -72,11 +71,4 @@ char	**ft_split_whitespaces(char *str)
 	}
 	tab[k] = NULL;
 	return (tab);
-}
-
-int		main(int ac, char **av)
-{
-	ac = 0;
-	ft_split_whitespaces(av[1]);
-	return(0);
 }

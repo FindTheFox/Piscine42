@@ -6,12 +6,11 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:06:51 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/11 14:44:44 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/11 18:24:38 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int		check_base(char *str)
 {
@@ -84,7 +83,6 @@ void	ft_putnbr_base(int nb, char *base, char **str, int i)
 		{
 			str[0][0] = '-';
 			ft_putnbr_base(-nbr, base, str, 1);
-			printf("nbr = %ld\n", nbr);
 		}
 		else if (nbr >= l_base)
 		{
@@ -100,12 +98,11 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int		i;
 	int		number;
-	char	*str;
 	int		j;
+	char	*str;
 	char	tmp;
 
 	number = ft_atoi_base(nbr, base_from);
-	printf("atoi = %d\n", number);
 	if (!(str = (char *)malloc(sizeof(char) * 50)))
 		return (0);
 	i = 0;
@@ -124,10 +121,4 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		str[j - i++ - 1] = tmp;
 	}
 	return (str[-1] == '-' ? str - 1 : str);
-}
-
-int		main(int ac, char **av)
-{
-	printf("%s\n", ft_convert_base(av[1], av[2], av[3]));
-	return (0);
 }
