@@ -6,13 +6,16 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 15:52:01 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/11 18:29:27 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/13 21:30:42 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	**ft_split_whitespaces(char *str);
+char	**ft_split(char *str);
 
-void	ft_putchar(char c);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_putstr(char *str)
 {

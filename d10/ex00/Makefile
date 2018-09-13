@@ -1,16 +1,36 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    libft_creator.sh                                   :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: saneveu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/09/01 22:58:44 by saneveu           #+#    #+#              #
-#    Updated: 2018/09/13 19:38:39 by saneveu          ###   ########.fr        #
+#    Created: 2018/09/13 14:26:51 by saneveu           #+#    #+#              #
+#    Updated: 2018/09/13 19:49:19 by saneveu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-gcc -c ft_putchar.c ft_putstr.c ft_strcmp.c ft_strlen.c ft_swap.c;
-ar rc libft.a ft_putchar.o ft_putstr.o ft_strcmp.o ft_strlen.o ft_swap.o;
-ranlib libft.a;
-rm ft_putchar.o ft_putstr.o ft_strcmp.o ft_strlen.o ft_swap.o;
+NAME = libft.a
+
+OPTS = -c -I$(INCLUDE) 
+
+SRC1 = ./srcs/ft_putstr.c ./srcs/ft_strcmp.c ./srcs/ft_strlen.c ./srcs/ft_putchar.c ./srcs/ft_swap.c
+
+SRC2 = ft_putchar.o ft_strlen.o ft_strcmp.o ft_putstr.o ft_swap.o
+
+INCLUDE = /include
+
+all: $(NAME)
+
+$(NAME):
+	@gcc $(OPTS) $(SRC1)
+	@ar rc $(NAME) $(SRC2)
+	@ranlib $(NAME)
+
+clean: 
+	@/bin/rm $(SRC2)
+
+fclean:
+	@/bin/rm -rf $(NAME) $(SRC2)
+
+re: fclean all

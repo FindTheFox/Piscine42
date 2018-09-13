@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_par.h                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 18:53:21 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/13 18:53:25 by saneveu          ###   ########.fr       */
+/*   Created: 2018/08/28 22:59:48 by saneveu           #+#    #+#             */
+/*   Updated: 2018/08/29 22:24:38 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_PAR_H
-# define FT_STOCK_PAR_H
-
-# include <stdlib.h>
-
-typedef struct		s_stock_par
+void	ft_swap(int *a, int *b)
 {
-	int			size_param;
-	char		*str;
-	char		*copy;
-	char		**tab;
-}					t_stock_par;
+	int c;
 
-char				**ft_split_whitespaces(char *str);
-struct s_stock_par	*ft_param_to_tab(int ac, char **av);
-void				ft_putchar(char c);
-
-#endif
+	c = *a;
+	*a = *b;
+	*b = c;
+}

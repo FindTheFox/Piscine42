@@ -1,61 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_whitespaces.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/11 15:33:05 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/11 18:56:31 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/08 22:48:52 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/11 18:28:53 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_chars(char *chars, char c)
+#define SEP(c) (c == '\n' || c == '\t' || c == ' ' ? 1 : 0)
+#define DIFSEP(c) (c != '\n' && c != '\t' && c != ' ' ? 1 : 0)
+
+int		word_size(char *str)
 {
 	int i;
 
 	i = 0;
-	while (chars[i])
-	{
-		if (chars[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int		w_l(char *str, char *chars)
-{
-	int i;
-
-	i = 0;
-	while (str[i] && !ft_chars(chars, str[i]))
+	while (str[i] && DIFSEP(str[i]))
 		i++;
 	return (i);
 }
 
-int		nb_mot(char *str, char *chars)
+int		nb_mot(char *str)
 {
-	int i;
-	int nb;
+	int		i;
+	int		nb;
 
 	i = 0;
 	nb = 0;
 	while (str[i])
 	{
-		while (ft_chars(chars, str[i]))
+		while (SEP(str[i]))
 			i++;
 		if (str[i])
 			nb++;
-		while (str[i] && !ft_chars(chars, str[i]))
+		while (str[i] && !SEP(str[i]))
 			i++;
 	}
 	return (nb);
 }
 
-char	**ft_split(char *str, char *chars)
+char	**ft_split_whitespaces(char *str)
 {
 	int		i;
 	int		j;
@@ -64,18 +53,18 @@ char	**ft_split(char *str, char *chars)
 
 	i = 0;
 	k = 0;
-	if (!(tab = (char**)malloc(sizeof(char*) * (nb_mot(str, chars) + 1))))
+	if (!(tab = (char**)malloc(sizeof(char*) * (nb_mot(str) + 1))))
 		return (0);
 	while (str[i])
 	{
-		j = 0;
-		while (ft_chars(chars, str[i]))
+		while (SEP(str[i]))
 			i++;
 		if (str[i])
 		{
-			if (!(tab[k] = (char*)malloc(sizeof(char) * (w_l(str + i, chars)))))
+			if (!(tab[k] = (char*)malloc(sizeof(char) * (word_size(str + i)))))
 				return (0);
-			while (str[i] && !ft_chars(chars, str[i]))
+			j = 0;
+			while (str[i] && DIFSEP(str[i]))
 				tab[k][j++] = str[i++];
 			tab[k++][j] = '\0';
 		}
@@ -83,11 +72,3 @@ char	**ft_split(char *str, char *chars)
 	tab[k] = NULL;
 	return (tab);
 }
-
-/*void	ft_print_words_tables(char **str);
-
-int		main(int ac, char **av)
-{
-	ft_print_words_tables(ft_split(av[1], av[2]));
-	return (0);
-}*/
