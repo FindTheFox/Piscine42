@@ -10,29 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct_op.h"
+#include "do_op.h"
 
-int		op_plus(int nb1, int nb2)
+void		op_plus(int nb1, int nb2)
 {
-	return (nb1 + nb2);
+	ft_putnbr(nb1 + nb2);
 }
 
-int		op_moins(int nb1, int nb2)
+void		op_moins(int nb1, int nb2)
 {
-	return (nb1 - nb2);
+	ft_putnbr(nb1 - nb2);
 }
 
-int		op_fois(int nb1, int nb2)
+void		op_fois(int nb1, int nb2)
 {
-	return (nb1 * nb2);
+	ft_putnbr(nb1 * nb2);
 }
 
-int 	op_mod(int nb1, int nb2)
+void 	op_mod(int nb1, int nb2)
 {
-	return (nb1 % nb2);
+	if (nb2 == 0)
+		ft_putstr("Stop : modulo by zero");
+	else
+		ft_putnbr(nb1 % nb2);
 }
 
-int		op_div(int nb1, int nb2)
+void		op_div(int nb1, int nb2)
 {
-	return (nb1 / nb2);
+	if (nb2 == 0)
+		ft_putstr("Stop : division by zero");
+	else
+		ft_putnbr(nb1 / nb2);
 }
