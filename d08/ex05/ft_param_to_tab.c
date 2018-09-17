@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 18:52:53 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/13 18:53:03 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/16 14:54:23 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ struct s_stock_par	*ft_param_to_tab(int ac, char **av)
 	t_stock_par	*par;
 	int			i;
 
-	if (!(par = (t_stock_par *)malloc(sizeof(t_stock_par) * ac)))
+	if (!(par = (t_stock_par *)malloc(sizeof(t_stock_par) * (ac + 1))))
 		return (NULL);
 	i = 0;
 	while (i < ac)

@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_op.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/15 14:23:00 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/17 14:40:29 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/16 22:45:07 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/16 22:45:09 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DO_OP_H
-# define DO_OP_H
+#include "eval_expr.h"
 
-# include <unistd.h>
-typedef	struct	s_tab_pf
+int		ft_strcmp(char *s1, char *s2)
 {
-	char	op;
-	void	(*f)(int, int);
-}		t_tab_pf;
+	int		i;
 
-void	ft_putstr(char *str);
-void	ft_putnbr(int nb);
-void	ft_putchar(char c);
-void	op_plus(int nb1, int nb2);
-void	op_moins(int nb1, int nb2);
-void	op_fois(int nb1, int nb2);
-void	op_mod(int nb1, int nb2);
-void 	op_div(int nb1, int nb2);
-int	ft_atoi(char *str);
-
-#endif
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}

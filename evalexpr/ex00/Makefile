@@ -5,31 +5,38 @@
 #                                                     +:+ +:+         +:+      #
 #    By: saneveu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/09/17 14:38:22 by saneveu           #+#    #+#              #
-#    Updated: 2018/09/17 14:40:19 by saneveu          ###   ########.fr        #
+#    Created: 2018/09/16 22:42:08 by saneveu           #+#    #+#              #
+#    Updated: 2018/09/16 22:47:44 by saneveu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = do-op
+NAME = eval_expr
 
-FLAG = -c -Wall -Werror -Wextra
+IDIR = includes
+_INC = eval_expr.h
+INC = $(patsubst %,$(IDIR)/%,$(_INC))
 
-HDR = -I includes/
+SDIR = srcs
+_SRC = *.c
+SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
-SRC = srcs/do_op.c srcs/ft_display.c srcs/ft_op.c
+OBJ = $(_SRC:.c=.o)
 
-OBJ = ft_display.o ft_op.o do_op.o
+FLAGS = -Wall -Wextra -Werror
+OPTS = -o $(NAME) -I$(IDIR)
 
 all: $(NAME)
 
-$(NAME):
-	@gcc $(FLAG) $(HDR) $(SRC)
-	@gcc $(OBJ) -o $(NAME)
+$(NAME): $(OBJ)
+		@gcc $(FLAGS) $(OPTS) $(SRC)
+
+$(OBJ): $(SRC)
+		@gcc -c -I$(IDIR) $(SRC)
 
 clean:
-	@/bin/rm $(OBJ)
-	
-fclean:	
-	@/bin/rm -rf $(NAME) $(OBJ)
+		@/bin/rm -f $(OBJ)
 
-re: fclean all
+fclean: clean
+		@/bin/rm -f $(NAME)
+
+re: clean all

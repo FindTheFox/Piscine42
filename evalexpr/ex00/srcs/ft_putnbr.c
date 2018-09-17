@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_op.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/15 14:23:00 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/17 14:40:29 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/16 22:43:53 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/16 22:44:55 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DO_OP_H
-# define DO_OP_H
+#include "eval_expr.h"
 
-# include <unistd.h>
-typedef	struct	s_tab_pf
+void	ft_putnbr(int nb)
 {
-	char	op;
-	void	(*f)(int, int);
-}		t_tab_pf;
-
-void	ft_putstr(char *str);
-void	ft_putnbr(int nb);
-void	ft_putchar(char c);
-void	op_plus(int nb1, int nb2);
-void	op_moins(int nb1, int nb2);
-void	op_fois(int nb1, int nb2);
-void	op_mod(int nb1, int nb2);
-void 	op_div(int nb1, int nb2);
-int	ft_atoi(char *str);
-
-#endif
+	if (nb == -2147483648)
+	{
+		ft_putchar('-');
+		ft_putchar('2');
+		nb = 147483648;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+		ft_putchar(nb + '0');
+}

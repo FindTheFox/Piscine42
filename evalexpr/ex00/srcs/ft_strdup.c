@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_op.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/15 14:23:00 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/17 14:40:29 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/16 22:45:17 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/16 22:45:19 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DO_OP_H
-# define DO_OP_H
+#include "eval_expr.h"
 
-# include <unistd.h>
-typedef	struct	s_tab_pf
+char	*ft_strdup(char *src)
 {
-	char	op;
-	void	(*f)(int, int);
-}		t_tab_pf;
+	char	*dest;
+	int		i;
 
-void	ft_putstr(char *str);
-void	ft_putnbr(int nb);
-void	ft_putchar(char c);
-void	op_plus(int nb1, int nb2);
-void	op_moins(int nb1, int nb2);
-void	op_fois(int nb1, int nb2);
-void	op_mod(int nb1, int nb2);
-void 	op_div(int nb1, int nb2);
-int	ft_atoi(char *str);
-
-#endif
+	if (!src)
+		return (NULL);
+	if (!(dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}

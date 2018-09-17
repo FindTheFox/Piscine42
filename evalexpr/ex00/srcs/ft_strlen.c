@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_op.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/15 14:23:00 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/17 14:40:29 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/16 22:45:29 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/16 22:45:31 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DO_OP_H
-# define DO_OP_H
+#include "eval_expr.h"
 
-# include <unistd.h>
-typedef	struct	s_tab_pf
+int		ft_strlen(char *str)
 {
-	char	op;
-	void	(*f)(int, int);
-}		t_tab_pf;
+	int		len;
 
-void	ft_putstr(char *str);
-void	ft_putnbr(int nb);
-void	ft_putchar(char c);
-void	op_plus(int nb1, int nb2);
-void	op_moins(int nb1, int nb2);
-void	op_fois(int nb1, int nb2);
-void	op_mod(int nb1, int nb2);
-void 	op_div(int nb1, int nb2);
-int	ft_atoi(char *str);
-
-#endif
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
