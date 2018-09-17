@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 14:40:35 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/17 14:40:40 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/17 23:35:09 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ void	tab_pf(t_tab_pf *pf)
 	pf[4].f = &op_fois;
 }
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
+	int			i;
+	int			j;
+	t_tab_pf	ope[5];
+
+	j = 0;
+	i = 0;
+	tab_pf(ope);
 	if (ac == 4)
 	{
-		int i;
-		int j;
-		t_tab_pf ope[5];
-		
-		j = 0;
-		i = 0;
-		tab_pf(ope);
 		while (i <= 5)
 		{
 			if (av[2][0] == ope[i].op)

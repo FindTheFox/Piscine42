@@ -6,26 +6,22 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 21:38:04 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/13 23:27:11 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/17 21:49:50 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_count_if(char **tab, int (*f)(char*))
 {
 	int i;
-	int j;
 	int count;
 
 	i = 0;
 	count = 0;
-	while (tab[i][j])
+	while (tab[i])
 	{
-		j = 0;
-		while (tab[i][j] && (*f)(tab[i][j]) == 0)
-			j++;
-		if ((*f)(tab[i][j++]) == 1)
+		if ((*f)(tab[i]) == 1)
 			count++;
 		i++;
 	}
-	return (0);
+	return (count);
 }

@@ -6,14 +6,14 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 14:40:48 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/17 14:40:50 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/17 23:57:25 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "do_op.h"
 
-void		ft_putchar(char c)
-{	
+void	ft_putchar(char c)
+{
 	write(1, &c, 1);
 }
 
@@ -48,7 +48,6 @@ void	ft_putnbr(int nb)
 		ft_putchar(nbr + '0');
 }
 
-
 int		ft_atoi(char *str)
 {
 	int i;
@@ -76,4 +75,3 @@ int		ft_atoi(char *str)
 	else
 		return (nb);
 }
-
