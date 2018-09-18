@@ -6,7 +6,7 @@
 #    By: saneveu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/13 14:26:51 by saneveu           #+#    #+#              #
-#    Updated: 2018/09/17 21:45:46 by saneveu          ###   ########.fr        #
+#    Updated: 2018/09/18 20:34:07 by saneveu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC1 = ./srcs/ft_putstr.c ./srcs/ft_strcmp.c ./srcs/ft_strlen.c ./srcs/ft_putcha
 
 SRC2 = ft_putchar.o ft_strlen.o ft_strcmp.o ft_putstr.o ft_swap.o
 
-INCLUDE = /include
+INCLUDE = /includes
 
 all: $(NAME)
 
@@ -28,7 +28,7 @@ $(NAME):
 	@ranlib $(NAME)
 
 clean: 
-	@/bin/rm $(SRC2)
+	@/bin/rm -f $(SRC2)
 
 fclean:
 	@/bin/rm -rf $(NAME) $(SRC2)

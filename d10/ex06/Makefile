@@ -6,7 +6,7 @@
 #    By: saneveu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/17 14:38:22 by saneveu           #+#    #+#              #
-#    Updated: 2018/09/17 21:57:24 by saneveu          ###   ########.fr        #
+#    Updated: 2018/09/18 17:40:32 by saneveu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME):
 	@gcc $(OBJ) -o $(NAME)
 
 clean:
-	@/bin/rm $(OBJ)
+	@/bin/rm -f $(OBJ)
 	
 fclean:	
 	@/bin/rm -rf $(NAME) $(OBJ)
