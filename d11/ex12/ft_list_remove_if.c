@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/18 16:09:22 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/19 22:27:07 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/19 19:26:43 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/19 20:27:41 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-t_list		*ft_create_elem(void *data)
+void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
-	t_list *list;
-	
-	if(!(list = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	list->data = data;
-	list->next = NULL;
-	return (list);
+	t_list *freedom;
+
+	if ((*cmp)((*begin_list)->data, data_ref) == 0)
+	{
+		freedom = (*begin_list);
+		(*begin_list) = (*begin_list)->next;
+		free(freedom);
+		ft_list_remove_if((*begin_list), data_ref, cmp);		
+	}
+	else 	
+		ft_list_remove_if(&(*begin_list)->next, data_ref, cmp);		
 }

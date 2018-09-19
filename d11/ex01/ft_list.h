@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 18:11:45 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/18 18:15:03 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/19 22:18:33 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 typedef	struct	s_list
 {
-	t_list *next;
-	void	*data;
+	t_list 		*next;
+	void		*data;
 }				t_list;
+t_list	*ft_create_elem(void data);
+
 #endif
