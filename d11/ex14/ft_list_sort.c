@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/19 19:26:43 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/20 13:33:44 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/20 13:03:16 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/20 13:05:36 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
-
-void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
-	t_list *freedom;
+	t_list    *tmp;
+	t_list    *tmp1;
+	t_list    *tmp2;
+	void    *min;
 
-	if (*begin_list)
+	tmp = *begin_list;
+	while (tmp)
 	{
-		if ((*cmp)((*begin_list)->data, data_ref) == 0)
+		tmp2 = tmp;
+		min = tmp->data;
+		tmp1 = tmp->next;
+		while (tmp1)
 		{
-	
-			freedom = (*begin_list);
-			(*begin_list) = (*begin_list)->next;
-			free(freedom);
-			ft_list_remove_if(begin_list, data_ref, cmp);		
-	
+			if ((*cmp)(min, tmp1->data) > 0)
+			{
+				tmp2 = tmp1;
+				min = tmp2->data;
+			}
+			tmp1 = tmp1->next;
 		}
-		else 	
-			ft_list_remove_if(&(*begin_list)->next, data_ref, cmp);		
+		tmp2->data = tmp->data;
+		tmp->data = min;
+		tmp = tmp->next;
 	}
 }

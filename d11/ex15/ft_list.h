@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/19 19:26:43 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/20 13:33:44 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/18 16:07:18 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/19 22:10:01 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#ifndef	FT_LIST_H
+# define FT_LIST_H
+#include <stdlib.h>
 
-void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
+typedef	struct		s_list
 {
-	t_list *freedom;
+	struct s_list	*next;
+	void			*data;
+}					t_list;
+t_list	*ft_create_elem(void *data);
 
-	if (*begin_list)
-	{
-		if ((*cmp)((*begin_list)->data, data_ref) == 0)
-		{
-	
-			freedom = (*begin_list);
-			(*begin_list) = (*begin_list)->next;
-			free(freedom);
-			ft_list_remove_if(begin_list, data_ref, cmp);		
-	
-		}
-		else 	
-			ft_list_remove_if(&(*begin_list)->next, data_ref, cmp);		
-	}
-}
+#endif
