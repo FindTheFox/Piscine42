@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_list.h"
 
-t_list	*ft_list_at(t_list	*begin_list, unsigned int nbr)
+t_list		*ft_list_at(t_list *begin_list, unsigned int nbr)
 {
 	if (!begin_list)
 		return NULL;
 	else if (nbr == 0)
 		return (begin_list);
 	else if (begin_list->next)
-		return (ft_list_at(&begin_list, (nbr - 1)));
+		return (ft_list_at(begin_list->next, (nbr - 1)));
 	else
 		return NULL;
 }

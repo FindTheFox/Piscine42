@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//oublie pas les libs fdp
-#include <stdlib.h>
 #include "ft_list.h"
 
 void  ft_list_reverse(t_list **begin_list)

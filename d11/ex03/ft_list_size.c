@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/19 15:10:08 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/19 16:02:05 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/19 11:37:10 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/19 22:38:09 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_list_foreach_if(t_list *begin_list, void(*f)(void *), void
-		*data_ref, int (*cmp)(void *, void *))
+#include "ft_list.h"
+
+int		ft_list_size(t_list *begin_list)
 {
-	if (!(*begin_list))
-		return ;
-	if ((*cmp)(begin_list->data, data_ref) == 0)
-		(*f)(begin_list->data);
-	if (begin_list->next)
-		ft_list_foreach_if(begin_list->next, f, data_ref, cmp);
+	if (!begin_list)
+		return (0);
+	else
+		return (1 + ft_list_size(begin_list));
 }

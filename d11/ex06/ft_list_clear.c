@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft-list.h"
 
 void	ft_list_clear(t_list **begin_list)
 {
 	if (*begin_list)
 	{
-		ft_list_clear(&(*begin_list)->next)
-		free(&(*begin_list));
+		ft_list_clear(&(*begin_list)->next);
+		free(*begin_list);
 		(*begin_list) = NULL;
 	}
 }
