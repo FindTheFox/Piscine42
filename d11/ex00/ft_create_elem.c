@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 16:09:22 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/19 22:27:07 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/20 17:50:22 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list		*ft_create_elem(void *data)
 {
-	t_list *list;
-	
-	if(!(list = (t_list *)malloc(sizeof(t_list))))
+	t_list	*list;
+
+	if (!(list = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
 	list->data = data;
 	list->next = NULL;

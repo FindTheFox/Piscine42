@@ -6,14 +6,14 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 15:10:08 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/19 16:02:05 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/20 18:19:49 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_foreach_if(t_list *begin_list, void(*f)(void *), void
-		*data_ref, int (*cmp)(void *, void *))
+void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *), void *data_ref
+		, int (*cmp)(void *, void *))
 {
 	if (!begin_list)
 		return ;

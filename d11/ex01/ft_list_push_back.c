@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 18:14:31 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/19 22:25:03 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/20 17:57:53 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,4 @@ void		ft_list_push_back(t_list **begin_list, void *data)
 	}
 	else
 		(*begin_list) = ft_create_elem(data);
-}	
+}

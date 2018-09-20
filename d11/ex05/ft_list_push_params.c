@@ -6,7 +6,7 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 12:21:20 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/19 12:37:30 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/20 18:15:48 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ void		ft_list_push_front(t_list **begin_list, void *data)
 	list = ft_create_elem(data);
 	if (*begin_list)
 		list->next = (*begin_list);
-	else
-		(*begin_list) = ft_create_elem(data);
 	(*begin_list) = list;
 }
 
-t_list	*ft_list_push_params(int ac, char **av)
+t_list		*ft_list_push_params(int ac, char **av)
 {
-	int i;
+	int		i;
 	t_list	*list;
 
 	list = NULL;

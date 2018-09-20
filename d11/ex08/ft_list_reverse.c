@@ -6,13 +6,13 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 14:07:35 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/20 14:25:00 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/20 18:01:04 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void  ft_list_reverse(t_list **begin_list)
+void	ft_list_reverse(t_list **begin_list)
 {
 	t_list *tmp1;
 	t_list *tmp2;

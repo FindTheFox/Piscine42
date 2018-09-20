@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sort.c                                       :+:      :+:    :+:   */
+/*   ft_sorted_list_merge.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/20 13:03:16 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/20 18:08:28 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/20 17:39:46 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/20 18:12:03 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_sort(t_list **begin_list, int (*cmp)())
+void	my_ft_list_merge(t_list **begin_list1, t_list *begin_list2)
+{
+	if (!(*begin_list1))
+		*begin_list1 = begin_list2;
+	else if (!(*begin_list1)->next)
+		(*begin_list1)->next = begin_list2;
+	else
+		my_ft_list_merge(&((*begin_list1)->next), begin_list2);
+}
+
+void	my_ft_list_sort(t_list **begin_list, int (*cmp)())
 {
 	t_list		*tmp;
 	t_list		*tmp1;
@@ -38,4 +48,11 @@ void	ft_list_sort(t_list **begin_list, int (*cmp)())
 		tmp->data = min;
 		tmp = tmp->next;
 	}
+}
+
+void	ft_sorted_list_merge(t_list **begin_list1, t_list *begin_list2
+		, int (*cmp)())
+{
+	my_ft_list_merge(begin_list1, begin_list2);
+	my_ft_list_sort(begin_list1, cmp);
 }

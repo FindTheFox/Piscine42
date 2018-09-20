@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/18 18:11:45 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/19 22:18:33 by saneveu          ###   ########.fr       */
+/*   Created: 2018/09/18 16:07:18 by saneveu           #+#    #+#             */
+/*   Updated: 2018/09/20 17:52:42 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define FT_LIST_H
 # include <stdlib.h>
 
-typedef	struct	s_list
+typedef	struct		s_list
 {
-	t_list 		*next;
-	void		*data;
-}				t_list;
-t_list	*ft_create_elem(void data);
+	struct s_list	*next;
+	void			*data;
+}					t_list;
+t_list				*ft_create_elem(void *data);
 
 #endif
