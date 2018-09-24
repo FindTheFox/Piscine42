@@ -10,7 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{	
+	write(1 , &c, 1);
+}
 
 int		find_max(int size)
 {
@@ -82,4 +87,11 @@ void	sastantua(int size)
 			display_floor(size, floor);
 			floor++;
 		}
+}
+
+#include <stdlib.h>
+int	main(int ac, char **av)
+{
+	sastantua(atoi(av[1]));
+	return (0);
 }
