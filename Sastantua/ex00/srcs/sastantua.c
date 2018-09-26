@@ -6,11 +6,16 @@
 /*   By: saneveu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 19:29:08 by saneveu           #+#    #+#             */
-/*   Updated: 2018/09/01 19:37:34 by saneveu          ###   ########.fr       */
+/*   Updated: 2018/09/02 20:08:30 by saneveu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{	
+	write(1 , &c, 1);
+}
 
 int		find_max(int size)
 {
