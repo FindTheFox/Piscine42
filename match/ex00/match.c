@@ -22,3 +22,9 @@ int		match(char *s1, char *s2)
 		return (match(s1, s2 + 1));
 	return (0);
 }
+
+int	main(int ac, char **av)
+{
+	match(av[1], av[2]);
+	return (0);
+}
